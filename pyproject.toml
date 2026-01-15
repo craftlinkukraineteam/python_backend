@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "python-backend"
+version = "0.1.0"
+description = ""
+authors = ["mist258 <natalia.kolchuk@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+djangorestframework = "^3.16.1"
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

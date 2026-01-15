@@ -1,0 +1,28 @@
+services:
+  app:
+    build:
+      context: .
+    volumes:
+      - ./backend:/app
+    environment:
+      - PYTHONPATH=/app
+    env_file:
+      - .env
+    working_dir: /app
+    ports:
+      - "8888:8000"
+    restart: on-failure
+    command: >
+      sh -c "python manage.py wait_db && python manage.py runserver 0.0.0.0:8000"
+
+  db:
+    image: postgres:14-alpine
+    env_file:
+      - .env
+    volumes:
+      - ./postgresql_db:/var/lib/postgresql
+    ports:
+      - "5435:5432"
+    restart: on-failure
+
+
